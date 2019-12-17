@@ -1,0 +1,65 @@
+/*flex on box*/
+.f-row{display: flex;display: -webkit-flex;flex-direction: row;-webkit-flex-direction: row;}
+.f-col{display: flex;display: -webkit-flex;flex-direction: column;-webkit-flex-direction: column;}
+.f-justify-start{justify-content: flex-start;-webkit-justify-content: flex-start;}
+.f-justify-end{justify-content: flex-end;-webkit-justify-content: flex-end;}
+.f-justify-center{justify-content: center;-webkit-justify-content: center;}
+.f-justify-between{justify-content: space-between;-webkit-justify-content: space-between;}
+.f-justify-around{justify-content: space-around;-webkit-justify-content: space-around;}
+.f-align-start{align-items: flex-start;-webkit-align-items: flex-start;}
+.f-align-end{align-items: flex-end;-webkit-align-items: flex-end;}
+.f-align-center{align-items: center;-webkit-align-items: center;}
+.f-align-baseline{align-items: baseline;-webkit-align-items: baseline;}
+.f-align-stretch{align-items: stretch;-webkit-align-items: stretch;}
+.f-wrap-nowrap{flex-wrap: nowrap;-webkit-flex-wrap: nowrap;}
+.f-wrap-wrap{flex-wrap: wrap;-webkit-flex-wrap: wrap;}
+.f-wrap-reverse{flex-wrap: wrap-reverse;-webkit-flex-wrap: wrap-reverse;}
+/*flex on item*/
+.f-cover{flex: 1;-webkit-flex: 1;}
+.f-align-self-start{align-self: flex-start;-webkit-align-self: flex-start;}
+.f-align-self-end{align-self: flex-end;-webkit-align-self: flex-end;}
+.f-align-self-center{align-self: center;-webkit-align-self: center;}
+.f-align-self-baseline{align-self: baseline;-webkit-align-self: baseline;}
+.f-align-self-stretch{align-self: stretch;-webkit-align-self: stretch;}
+
+/*text-align*/
+.text-align-l{text-align: left;}
+.text-align-c{text-align: center;}
+.text-align-r{text-align: right;}
+
+// 移动端边框1px问题
+.border-1px{position: relative;}
+.border-1px:after{content: '';position: absolute;left: 0;bottom: 0;background: #e1e1e1;width: 100%;height: 1px;-webkit-transform: scaleY(0.5);transform: scaleY(0.5);-webkit-transform-origin: 0 0;transform-origin: 0 0;}
+
+/** 进入离开动画 ***********************************************************************/
+/**
+用法
+<transition name="scale-right" mode="out-in">
+  <router-view />
+</transition>
+*/
+// 1.右伸缩推入推出
+.scale-right-enter-active,
+.scale-right-leave-active {transition: transform .3s; -webkit-transition: transform .3s; transform-origin: right; -webkit-transform-origin: right;}
+.scale-right-enter,
+.scale-right-leave-active {transform: scale(0, 1); -webkit-transform: scale(0, 1);}
+// 2. 右推入推出
+.from-right-enter-active,
+.from-right-leave-active {transition: all .3s;-webkit-transition: all .3s;}
+.from-right-enter,
+.from-right-leave-active {transform: translate3d(100%, 0, 0);}
+// 3. 底部推入推出
+.from-bottom-enter-active,
+.from-bottom-leave-active {transition: all .3s;-webkit-transition: all .3s;}
+.from-bottom-enter,
+.from-bottom-leave-active {transform: translate3d(0, 100%, 0);}
+// 4. 右下底部一起推入推出
+.from-right-bottom-enter-active,
+.from-right-bottom-leave-active {transition: all .3s;-webkit-transition: all .3s;}
+.from-right-bottom-enter,
+.from-right-bottom-leave-active {transform: translate3d(100%, 100%, 0);}
+
+/** ******************************************************************************** */
+
+// 解决使用vw适配方案 图片不显示问题
+img {content: normal !important;}
