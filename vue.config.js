@@ -76,6 +76,18 @@ module.exports = {
         bypassOnDebug: true
       })
       .end()
+    config.optimization.splitChunks({
+      cacheGroups: {
+        vendors: {
+          name: 'chunk-vendors',
+          minChunks: jsFileNames.length,
+          test: /node_modules/,
+          priority: -10,
+          chunks: 'initial'
+        },
+        common: {}
+      }
+    })
   },
   configureWebpack: config => {
     config.externals = {
